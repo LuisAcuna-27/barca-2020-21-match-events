@@ -1,0 +1,6 @@
+data/generated/events/
+starter_reference/
+deployment/job.json
+__pycache__/
+.venv/
+.databricks/

@@ -1,0 +1,36 @@
+match_id,match_date,home_team_id,home_team_name,away_team_id,away_team_name,home_score,away_score,barca_home,opponent_name,barca_goals,opponent_goals,barca_result
+3773593,2020-09-27,217,Barcelona,222,Villarreal,4,0,True,Villarreal,4,0,W
+3773466,2020-10-01,209,Celta Vigo,217,Barcelona,0,3,False,Celta Vigo,3,0,W
+3773672,2020-10-04,217,Barcelona,213,Sevilla,1,1,True,Sevilla,1,1,D
+3773587,2020-10-17,216,Getafe,217,Barcelona,1,0,False,Getafe,0,1,L
+3773585,2020-10-24,217,Barcelona,220,Real Madrid,1,3,True,Real Madrid,1,3,L
+3773386,2020-10-31,206,Deportivo Alavés,217,Barcelona,1,1,False,Deportivo Alavés,1,1,D
+3773477,2020-11-07,217,Barcelona,218,Real Betis,5,2,True,Real Betis,5,2,W
+3773656,2020-11-21,212,Atlético Madrid,217,Barcelona,1,0,False,Atlético Madrid,0,1,L
+3773547,2020-11-29,217,Barcelona,422,Osasuna,4,0,True,Osasuna,4,0,W
+3773428,2020-12-05,552,Cádiz,217,Barcelona,2,1,False,Cádiz,1,2,L
+3773660,2020-12-13,217,Barcelona,221,Levante UD,1,0,True,Levante UD,1,0,W
+3773523,2020-12-16,217,Barcelona,210,Real Sociedad,2,1,True,Real Sociedad,2,1,W
+3773377,2020-12-19,217,Barcelona,207,Valencia,2,2,True,Valencia,2,2,D
+3773571,2020-12-22,901,Real Valladolid,217,Barcelona,0,3,False,Real Valladolid,3,0,W
+3773552,2021-01-03,902,Huesca,217,Barcelona,0,1,False,Huesca,1,0,W
+3764661,2021-01-06,215,Athletic Club,217,Barcelona,2,3,False,Athletic Club,3,2,W
+3773565,2021-01-09,1049,Granada,217,Barcelona,0,4,False,Granada,4,0,W
+3773403,2021-01-31,217,Barcelona,215,Athletic Club,2,1,True,Athletic Club,2,1,W
+3773631,2021-02-07,218,Real Betis,217,Barcelona,2,3,False,Real Betis,3,2,W
+3773526,2021-02-13,217,Barcelona,206,Deportivo Alavés,5,1,True,Deportivo Alavés,5,1,W
+3773415,2021-02-21,217,Barcelona,552,Cádiz,1,1,True,Cádiz,1,1,D
+3764440,2021-02-24,217,Barcelona,1042,Elche,3,0,True,Elche,3,0,W
+3773625,2021-02-27,213,Sevilla,217,Barcelona,0,2,False,Sevilla,2,0,W
+3773665,2021-03-06,422,Osasuna,217,Barcelona,0,2,False,Osasuna,2,0,W
+3773369,2021-03-15,217,Barcelona,902,Huesca,4,1,True,Huesca,4,1,W
+3773597,2021-03-21,210,Real Sociedad,217,Barcelona,1,6,False,Real Sociedad,6,1,W
+3773474,2021-04-05,217,Barcelona,901,Real Valladolid,1,0,True,Real Valladolid,1,0,W
+3773497,2021-04-10,220,Real Madrid,217,Barcelona,2,1,False,Real Madrid,1,2,L
+3773661,2021-04-22,217,Barcelona,216,Getafe,5,2,True,Getafe,5,2,W
+3773689,2021-04-25,222,Villarreal,217,Barcelona,1,2,False,Villarreal,2,1,W
+3773586,2021-04-29,217,Barcelona,1049,Granada,1,2,True,Granada,1,2,L
+3773695,2021-05-02,207,Valencia,217,Barcelona,2,3,False,Valencia,3,2,W
+3773372,2021-05-08,217,Barcelona,212,Atlético Madrid,0,0,True,Atlético Madrid,0,0,D
+3773387,2021-05-11,221,Levante UD,217,Barcelona,3,3,False,Levante UD,3,3,D
+3773457,2021-05-16,217,Barcelona,209,Celta Vigo,1,2,True,Celta Vigo,1,2,L

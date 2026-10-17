@@ -1,0 +1,12 @@
+{
+  "source_commit": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+  "matches_url": "https://raw.githubusercontent.com/hudl/open-data/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb/data/matches/11/90.json",
+  "matches_sha256": "37f6d9026f9ea9ce6c53ebbcc7a349bab42ed0cde9c2bbb15dfb94e664949ba9",
+  "matches": 35,
+  "batch_1_matches": 17,
+  "batch_2_matches": 18,
+  "events": 139030,
+  "unique_event_ids": 139030,
+  "shots": 839,
+  "shots_without_xg": 0
+}
