@@ -52,14 +52,18 @@ The dedicated Unity Catalog catalog is `barca_final_project`, with `bronze`, `si
 ## Reproduce the pipeline
 
 1. Run `python prepare_data.py` from the repository root. Python's standard library is sufficient. The script downloads the pinned JSON files and writes `data/generated/`.
-2. In a Databricks workspace with Unity Catalog, create a new catalog named `barca_final_project` using Default Storage. Import the numbered notebooks into your own workspace folder, and run `00_config`.
+2. In a Databricks workspace with Unity Catalog, create a new catalog named `barca_final_project` using Default Storage. Connect this GitHub repository as a Git folder at `/Workspace/Users/<your-user>/final_project_module_4/barca_events`, then run `notebooks/00_config` from that folder.
 3. Upload `data/generated/matches_2020_21.csv` to `/Volumes/barca_final_project/bronze/landing/matches/`. Upload only the 17 `lote_1_*.csv` event files to `/Volumes/barca_final_project/bronze/landing/events/`, then run `01_bronze`. It should show **66,380** event rows.
 4. Upload the 18 `lote_2_*.csv` files to the same event folder and rerun `01_bronze`. It should show **139,030** rows. Rerun it once more without new files; the count should remain unchanged. Auto Loader stores its schema and processed-file checkpoint in separate paths under the landing volume.
 5. Run `02_silver` and `03_gold`. The expected results are 139,030 clean events, 35 matches, 70 gold rows, and 839 shots across both teams. Run the SQL cells in `04_quality_evidence` individually to capture the literal Delta rejection messages.
 6. Run `05_governance` and `06_observability`. The secured gold snapshot is intentionally separate from the constrained analytical table because Databricks does not allow a row filter on a table with `CHECK` constraints.
-7. Copy `deployment/job.example.json` to `deployment/job.json`, replace `<your-user>` with your Databricks workspace user, and create a Lakeflow Job with `databricks jobs create --json @deployment/job.json`. Its three notebook tasks depend on bronze → silver → gold. The active file arrival trigger monitors the project's event volume.
+7. Copy `deployment/job.example.json` to `deployment/job.json`, replace `<your-user>` with your Databricks workspace user, and create a Lakeflow Job with `databricks jobs create --json @deployment/job.json`. Its three notebook tasks run directly from the Git folder and depend on bronze → silver → gold. The active file arrival trigger monitors the project's event volume.
 
 The public repository excludes the 35 prepared event CSVs; the script downloads and regenerates them from the pinned public source. The small match file, manifest, and summary are included for inspection.
+
+## Version control
+
+The Databricks Git folder is connected to this repository at `/Workspace/Users/<your-user>/final_project_module_4/barca_events`. Development used the `feature/databricks-pipeline` branch and [pull request #1](https://github.com/LuisAcuna-27/barca-2020-21-match-events/pull/1), which was merged into `main`. The Lakeflow Job runs the notebooks from that Git folder.
 
 ## Governance and operating notes
 

@@ -2,6 +2,8 @@
 
 This document records results observed in the dedicated Databricks catalog `barca_final_project`. The project job is [barca_final_project_pipeline](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084), with dependent bronze, silver, and gold notebook tasks and one retry configured on bronze.
 
+The job also [succeeded while running notebooks directly from the merged Git folder](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084/run/477953224983311). The Git folder was checked out on `feature/databricks-pipeline` and then updated to `main` at merge commit `6c2d685205a3f5d8088a8814ba2bc1a906159649`.
+
 ## Incremental ingestion
 
 | Run | Input state | Bronze rows | Distinct event IDs | Source files |
@@ -9,6 +11,7 @@ This document records results observed in the dedicated Databricks catalog `barc
 | [First load](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084/run/160139310901670) | 17 batch 1 files | 66,380 | 66,380 | 17 |
 | [Second load](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084/run/886099939724966) | 18 additional batch 2 files | 139,030 | 139,030 | 35 |
 | [Full three-task run](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084/run/827648114393328) | No new files | 139,030 | 139,030 | 35 |
+| [Git-backed three-task run](https://dbc-cbc2bb58-ee6e.cloud.databricks.com/?o=7474647652788276#job/967461877121084/run/477953224983311) | No new files | 139,030 | 139,030 | 35 |
 
 Batch 1 contributes 66,380 rows from 17 files. Batch 2 contributes 72,650 rows from 18 files. The unchanged count after another bronze run demonstrates that the Auto Loader checkpoint prevented reprocessing.
 
@@ -43,3 +46,7 @@ The protected table returned 35 Barcelona rows with the current user's mapping s
 `system.lakeflow.job_run_timeline` returned project job ID `967461877121084` and the successful run ID `827648114393328`. The job has an active file arrival trigger on `/Volumes/barca_final_project/bronze/landing/events/`.
 
 Before optimization, `DESCRIBE DETAIL` reported 4,083,491 bytes for `silver.events_clean` and 2,908,730 bytes for `bronze.events_raw`. Silver was therefore the largest project table. It now reports `clusteringColumns = ["match_id"]` after `ALTER TABLE ... CLUSTER BY (match_id)` and `OPTIMIZE ... FULL`. The optimization rewrote no files because the small table already occupied one file. This is configuration and maintenance evidence, not a measured performance improvement.
+
+## Presentation captures
+
+Capture the following screens from the signed-in Databricks workspace before the live presentation: the bronze batch counts, silver quality metrics, gold home/away result, both rejected quality rows, the successful three-task job graph and file arrival trigger, `SHOW GRANTS` plus the mapping change, and the system-table/`DESCRIBE DETAIL` outputs. These are visual supplements to the reproducible SQL and linked job runs above.
