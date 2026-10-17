@@ -20,7 +20,7 @@
     {
       "task_key": "bronze_ingestion",
       "notebook_task": {
-        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/01_bronze",
+        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/barca_events/notebooks/01_bronze",
         "source": "WORKSPACE"
       },
       "max_retries": 1,
@@ -34,7 +34,7 @@
         }
       ],
       "notebook_task": {
-        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/02_silver",
+        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/barca_events/notebooks/02_silver",
         "source": "WORKSPACE"
       }
     },
@@ -46,7 +46,7 @@
         }
       ],
       "notebook_task": {
-        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/03_gold",
+        "notebook_path": "/Workspace/Users/<your-user>/final_project_module_4/barca_events/notebooks/03_gold",
         "source": "WORKSPACE"
       }
     }
