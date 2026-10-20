@@ -39,6 +39,6 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC **Presentation point:** Schemas separate raw ingestion, validated events,
+# MAGIC **Storage layout:** Schemas separate raw ingestion, validated events,
 # MAGIC analytical results, and access-control objects. A managed volume stores the
 # MAGIC landing files and Auto Loader metadata in Unity Catalog.

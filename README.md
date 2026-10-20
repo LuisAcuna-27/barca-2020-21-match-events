@@ -17,7 +17,7 @@ Barcelona recorded higher shot volume and xG per match at home in this **35-matc
 
 ## Source and scope
 
-The data comes from [StatsBomb Open Data](https://github.com/hudl/open-data), specifically the [Messi Data Biography](https://blogarchive.statsbomb.com/articles/soccer/welcome-to-the-messi-data-biography/) La Liga 2020/21 collection (`competition_id = 11`, `season_id = 90`). The extraction pins source commit `4b73468fc5b0f1950f9f66fada70ad3a4f9327cb`. Its [match metadata](https://github.com/hudl/open-data/blob/master/data/matches/11/90.json) references 35 event JSON files. The three Barcelona league fixtures without Messi are outside this collection: Barcelona–Eibar (29 December 2020), Elche–Barcelona (24 January 2021), and Eibar–Barcelona (22 May 2021). The fixture comparison uses the [2020/21 La Liga results CSV](https://www.football-data.co.uk/mmz4281/2021/SP1.csv).
+The data comes from [StatsBomb Open Data](https://github.com/hudl/open-data), specifically the [Messi Data Biography](https://blogarchive.statsbomb.com/articles/soccer/welcome-to-the-messi-data-biography/) La Liga 2020/21 collection (`competition_id = 11`, `season_id = 90`). Its [match metadata](https://github.com/hudl/open-data/blob/master/data/matches/11/90.json) references 35 event JSON files. The three Barcelona league fixtures without Messi are outside this collection: Barcelona–Eibar (29 December 2020), Elche–Barcelona (24 January 2021), and Eibar–Barcelona (22 May 2021). The fixture comparison uses the [2020/21 La Liga results CSV](https://www.football-data.co.uk/mmz4281/2021/SP1.csv).
 
 `prepare_data.py` extracts nine documented event fields from the nested JSON, without generating football events. The prepared source contains 139,030 events and 839 shots by both teams. The 35 event files are divided into two upload batches to demonstrate incremental ingestion. The source URL and SHA-256 hash for each event file are recorded in `data/generated/manifest.csv`. See [DATA_DICTIONARY.md](DATA_DICTIONARY.md) for field definitions and null rules.
 
@@ -45,7 +45,7 @@ The dedicated Unity Catalog catalog is `barca_final_project`, with `bronze`, `si
 | `notebooks/01_bronze.py` | Incremental Auto Loader ingestion with source path, schema location, and checkpoint. |
 | `notebooks/02_silver.py` | Cast, validate, deduplicate by `event_id`, join by `match_id`, and record quality metrics. |
 | `notebooks/03_gold.py` | Build the constrained team-by-match summary and answer the research question. |
-| `notebooks/04_quality_evidence.py` | Demonstrate rejected null and negative-value rows outside the scheduled job. |
+| `notebooks/04_quality_evidence.py` | Demonstrate rejected null and negative-value rows outside the pipeline job. |
 | `notebooks/05_governance.py` | Apply narrow reader grants, a mapping-based row filter, and an email classification tag. |
 | `notebooks/06_observability.py` | Query job system tables and document liquid clustering and `OPTIMIZE`. |
 
@@ -71,7 +71,7 @@ The `account users` principal receives `USE CATALOG`, `USE SCHEMA` on `gold`, an
 
 The largest table by `DESCRIBE DETAIL` is `silver.events_clean` (4,083,491 bytes versus 2,908,730 bytes for bronze events). It is liquid-clustered by `match_id`. `OPTIMIZE FULL` was executed; this small table already occupied one file, so no file rewrite or query-speed gain is claimed.
 
-See [EVIDENCE.md](EVIDENCE.md) for observed counts, job runs, quality errors, and governance results. [WORK_PLAN.md](WORK_PLAN.md) contains the presentation sequence and questions to rehearse.
+See [EVIDENCE.md](EVIDENCE.md) for observed counts, job runs, quality errors, and governance results.
 
 ## Attribution
 

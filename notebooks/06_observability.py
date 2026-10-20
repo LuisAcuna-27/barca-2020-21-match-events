@@ -49,8 +49,8 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC **Presentation point:** The `clusteringColumns` field should contain
-# MAGIC `match_id`. The source is only a few megabytes, so an `OPTIMIZE` run may
-# MAGIC rewrite zero files. Do not claim a speed gain without a measured query
-# MAGIC comparison. The value here is a documented layout choice and a visible
-# MAGIC maintenance operation on the largest project table.
+# MAGIC **Clustering and maintenance:** The `clusteringColumns` field records
+# MAGIC `match_id` as the clustering key. An `OPTIMIZE` run may rewrite zero files
+# MAGIC for this small table. The table detail and history document the clustering
+# MAGIC configuration and maintenance operation. Evaluating query performance
+# MAGIC requires a measured comparison.

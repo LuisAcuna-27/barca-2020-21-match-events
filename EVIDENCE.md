@@ -46,7 +46,3 @@ The protected table returned 35 Barcelona rows with the current user's mapping s
 `system.lakeflow.job_run_timeline` returned project job ID `967461877121084` and the successful run ID `827648114393328`. The job has an active file arrival trigger on `/Volumes/barca_final_project/bronze/landing/events/`.
 
 Before optimization, `DESCRIBE DETAIL` reported 4,083,491 bytes for `silver.events_clean` and 2,908,730 bytes for `bronze.events_raw`. Silver was therefore the largest project table. It now reports `clusteringColumns = ["match_id"]` after `ALTER TABLE ... CLUSTER BY (match_id)` and `OPTIMIZE ... FULL`. The optimization rewrote no files because the small table already occupied one file. This is configuration and maintenance evidence, not a measured performance improvement.
-
-## Presentation captures
-
-Capture the following screens from the signed-in Databricks workspace before the live presentation: the bronze batch counts, silver quality metrics, gold home/away result, both rejected quality rows, the successful three-task job graph and file arrival trigger, `SHOW GRANTS` plus the mapping change, and the system-table/`DESCRIBE DETAIL` outputs. These are visual supplements to the reproducible SQL and linked job runs above.

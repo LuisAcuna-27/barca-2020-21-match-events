@@ -112,7 +112,7 @@ display(spark.sql(f"""
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC **Presentation point:** Total xG per match reflects both chance volume
+# MAGIC **Interpreting results:** Total xG per match reflects both chance volume
 # MAGIC and chance quality. xG per shot describes average chance quality. These
 # MAGIC are descriptive measures for the 35 included matches, not evidence that
 # MAGIC playing at home caused a difference.

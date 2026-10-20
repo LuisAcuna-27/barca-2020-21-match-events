@@ -130,6 +130,6 @@ display(spark.table(QUALITY_METRICS).orderBy("metric"))
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC **Presentation point:** `event_id` removes repeated event records.
+# MAGIC **Business keys and nulls:** `event_id` is the event deduplication key.
 # MAGIC Repeated `match_id` values are expected and provide the many-to-one link
 # MAGIC to match metadata. A null `shot_xg` is valid for a non-shot event.

@@ -83,7 +83,6 @@ display(spark.sql(f"""
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC **Presentation point:** `schemaLocation` tracks the discovered CSV schema,
-# MAGIC while the streaming checkpoint records processed files. Their separate paths
-# MAGIC make the two responsibilities visible. The source path proves which batch
-# MAGIC produced each bronze row.
+# MAGIC **Ingestion metadata:** `schemaLocation` tracks the discovered CSV schema,
+# MAGIC while the streaming checkpoint records processed files in a separate path.
+# MAGIC The source path identifies the input file and batch for each bronze row.
